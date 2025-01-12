@@ -71,50 +71,50 @@
     </figure>
     </div>
 
-    <div id="app3">
+    <div id="app">
         <form v-on:submit.prevent="addItem">
-        <p>
-              What do you need? <br>
-        <input type="text" required placeholder="item name.." v-model="itemName">
-        </p>
-        <p>
-              How many? <br>
-        <input type="number" placeholder="number of items.." v-model="itemNumber">
-        </p>
-        <p>
-              Important?
-        <label>
-        <input type="checkbox" v-model="itemImportant">
-                {{ itemImportant }}
-        </label>
-        </p>
-        <button type="submit">Add item</button>
+          <p>
+            <h4>Order here:</h4>
+          <label>
+            <input type="radio" required value="Dinner" v-model="itemType" name="rbgType">Dinner
+          </label><br>
+          <label>
+            <input type="radio" required value="Drink" v-model="itemType" name="rbgType">Drink
+          </label><br>
+          <label>
+            <input type="radio" required value="Dessert" v-model="itemType" name="rbgType">Dessert
+          </label>
+          </p>
+          <p v-show="itemType">
+            <label>
+              <select required v-model="itemName" v-on:change="newUrl">
+                <option value="" selected disabled>Select item</option>
+                <option v-for="item in preDefItems" v-bind:value="item.name" v-show="item.type===itemType" v-bind:data-url="item.imgUrl">
+                  {{ item.name }}
+                </option>
+              </select>
+            </label>
+          </p>
+          <img v-bind:src="itemUrl">
+          <p v-show="itemName">
+            <input type="number" placeholder="How many?" v-model="itemNumber" required>
+          </p>
+          <button type="submit">Order</button>
         </form>
         <br>
         <hr>
-         
-          <div>
-        <p><strong>Shopping list:</strong></p>
-        <ul id="ulToFind">
-        <li 
-                v-for="item in shoppingList" 
-                v-bind:class="{ impClass: item.important }"
-                v-on:click="item.found=!item.found"
-                v-show="!item.found">
-                  {{ item.name }}, {{ item.number}}
-        </li>
-        </ul>
-        <ul id="ulFound">
-        <li 
-                v-for="item in shoppingList" 
-                v-bind:class="{ impClass: item.important }"
-                v-on:click="item.found=!item.found"
-                v-show="item.found">
-                  {{ item.name }}, {{ item.number}}
-        </li>
-        </ul>
+      
+        <div>
+          <h4>Your order:</h4>
+          <ul id="ulToFind">
+            <li v-for="item in order">
+                {{ item.name }}, {{ item.number}} <img v-bind:src="item.url">
+            </li>
+          </ul>
+      
+          </ul>
         </div>
-        </div>
+      </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="js/vue.js"></script>

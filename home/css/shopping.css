@@ -7,7 +7,10 @@
     padding: 5px;
     border-radius: 5px;
   }
-  #app label:hover, #app li:hover {
+  #app input[type=radio] {
+    margin: 8px;
+  }
+  #app label:hover {
     cursor: pointer;
     background-color: lightgray;
   }
@@ -16,6 +19,10 @@
   }
   li {
     margin: 2px;
+    width: 17ch;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
     background-color: rgb(211, 254, 211);
   }
   .impClass {
@@ -24,4 +31,14 @@
   #ulFound li {
     text-decoration: line-through;
     background-color: rgb(230,230,230);
+  }
+  form img {
+    width: 50px;
+  }
+  li img {
+    float: right;
+    height: 100%;
+  }
+  h4 {
+    margin: 0;
   }

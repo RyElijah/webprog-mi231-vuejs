@@ -26,4 +26,4 @@ const app3 = Vue.createApp({
       }
     }
   })
- app.mount('#app3')
+ app3.mount('#app3')

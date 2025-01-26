@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style>
-.apple {
+    .apple {
           border: dashed black 1px;
           display: inline-block;
           margin: 10px;

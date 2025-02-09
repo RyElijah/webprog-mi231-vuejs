@@ -1,3 +1,4 @@
+<template> 
 <div class="container">
   <header>
     <h1>ABOUT ME</h1>
@@ -42,4 +43,4 @@
   </main>
 </div>
 
-<template> 
+</template>
